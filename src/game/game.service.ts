@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { createGameDto } from "./dto/create-game.dto";
 
 
 @Injectable()
@@ -8,8 +9,8 @@ export class GameService {
     return 'Buscar todos os Games';
   }
 
-  create() {
-    return 'Game Criado';
+  create(createGameDto: createGameDto) {
+    return 'Criar um jogo' + JSON.stringify(createGameDto);
   }
 
 }

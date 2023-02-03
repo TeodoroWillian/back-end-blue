@@ -1,4 +1,5 @@
-import {Controller, Get, Post} from "@nestjs/common";
+import {Body, Controller, Get, Post} from "@nestjs/common";
+import { createGameDto } from "./dto/create-game.dto";
 import { GameService } from "./game.service";
 
 
@@ -15,7 +16,7 @@ export class GameController {
   }
 
   @Post()
-  create(){
-    return this.gameService.create();
+  create(@Body() createGameDto: createGameDto){
+    return this.gameService.create(createGameDto);
   }
 }
